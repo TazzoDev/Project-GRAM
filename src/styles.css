@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #3F3F3F;
+    font-family: Inter;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-sidebar{
+    background: #58575C;
+    width: 30vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.ls-top{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+.time{
+    color: antiquewhite;
+    font-weight: 600;
+    font-size: large;
+    background-color: #3F3F3F;
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.left-sidebar > hr {
+    margin-left: 36px;
+    margin-right:  36px;
+    border: 1px solid rgba(0, 0, 0, 0.63);
+}
+
+.right-sidebar{
+    background: #58575C;
+    width: 20vw;
+    height: 100vh;
+}
+
+.user-section{
+    margin: 20px 36px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.user-lvl{
+    object-fit: scale-down;
+}
+
+.money-stats{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.contacts{
+    background: rgba(98, 112, 121, 0.31);
+    height: 100%;
+    color: white;
+    padding: 26px 32px;
+}
+
+.contacts-section{
+    color: #222;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.contacts-section > hr {
+    border: 1px solid #222;
+}
+
+.section{
+    color: white;
+    font-size: 18px;
+    margin: 20px 10px;
+}
+
+.space{
+    background: #3F3F3F;
+    min-height: 50px;
+    margin-top: 12px;
+    border-radius: 8px;
+}
+
