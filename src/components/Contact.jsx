@@ -1,7 +1,7 @@
-export default function Contact({data}){
+export default function Contact(data){
     return(
         <div className="contact">
-            <img src={data.photoURL} />
+            <img src={data?.photoURL} />
             <p>{data.name}</p>
         </div>
     )

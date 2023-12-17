@@ -58,12 +58,16 @@ main {
     margin: 20px 36px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 
-.user-lvl{
-    object-fit: scale-down;
+.level-stats{
+    width: 70px;
+    height: 70px;
 }
+
+
 
 .money-stats{
     display: flex;

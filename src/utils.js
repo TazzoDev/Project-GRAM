@@ -29,3 +29,30 @@ export function nextDay(date){
 
     return {weekDay: newDay, weekCount: newWeek} 
 }
+
+export function nextLevel({level, points, nextLevelPoints}){
+    let newXpData = {
+        level: level,
+        points: points,
+        nextLevelPoints: nextLevelPoints
+    }
+
+    if(points >= nextLevelPoints){
+        newXpData.level++
+        newXpData.points = points - nextLevelPoints
+        newXpData.nextLevelPoints = nextLevelPoints * 1.25
+    }
+
+    return newXpData
+}
+
+export function addXp(xpData, points){
+    let newXpData = {
+        ...xpData,
+        points: xpData.points + points
+    }
+
+    newXpData = nextLevel(newXpData)
+
+    return newXpData
+}

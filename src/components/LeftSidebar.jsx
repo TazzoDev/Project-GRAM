@@ -1,13 +1,13 @@
+import { CircularProgressbar } from "react-circular-progressbar"
 import { formatNumber } from "../utils"
 import Clock from "./Clock"
 import Contact from "./Contact"
+import LevelProgressBar from "./Level"
 
 
-export default function LeftSidebar(data, chats){
+export default function LeftSidebar({money, xp, chats}){
 
-    console.log(chats)
-
-    const chatElements = chats.map( person => <Contact />)
+    const cartelChatElements = chats.cartel.map( (person, index) => <Contact {...person} key={index}/>)
    
     return (
         <div className="left-sidebar">
@@ -22,15 +22,22 @@ export default function LeftSidebar(data, chats){
                     <h2>Boss</h2>
                 </div>
                 <div className="money-stats">
-                    <p>Bank: <b>${formatNumber(data.money.bank)}</b></p>
-                    <p>Cash: <b>${formatNumber(data.money.cash)}</b></p>
+                    <p>Bank: <b>${formatNumber(money.bank)}</b></p>
+                    <p>Cash: <b>${formatNumber(money.cash)}</b></p>
                 </div>
-                <img  className="user-lvl" src="src/assets/images/Group 1.png" />
+                <br />
+                <div className="level-stats">
+                    <LevelProgressBar {...xp}/>
+                </div>
             </section>
             <section className="contacts">
                 <h3>Contacts</h3>
                 <section className="contacts-section">
                     <h4>Cartel</h4>
+                    <hr />
+                    {cartelChatElements}
+                    <br/>
+                    <h4>Clients</h4>
                     <hr />
                 </section>
             </section>
