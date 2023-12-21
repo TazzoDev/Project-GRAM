@@ -80,7 +80,7 @@ function App() {
           },
           {
             recieved: false,
-            text: "Comign right up."
+            text: "Comign right up. AAAAAAA"
           }
         ]
       },
