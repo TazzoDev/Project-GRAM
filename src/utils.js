@@ -8,8 +8,7 @@ export function formatNumber(num){
 export function createPerson(){
 
     return {
-        name: names[Math.floor(Math.random() * names.length)],
-        surname: surnames[Math.floor(Math.random() * surnames.length)],
+        name: names[Math.floor(Math.random() * names.length)] + " " + surnames[Math.floor(Math.random() * surnames.length)],
         area: areas[Math.floor(Math.random() * areas.length)].name
     }
 

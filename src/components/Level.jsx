@@ -1,4 +1,4 @@
-import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
+import {  CircularProgressbarWithChildren } from "react-circular-progressbar";
 
 
 export default function LevelProgressBar({ level,  points, nextLevelPoints }){

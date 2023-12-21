@@ -57,6 +57,11 @@ const areas = [
 
 ]
 
+//add events unlocked by level
+const events = [
+    
+]
+
 export {names, surnames, drugs, areas}
 
 
