@@ -1,9 +1,13 @@
+import { useState } from "react"
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from "react-router-dom"
+
+//component imports
 import LeftSidebar from "./components/LeftSidebar"
 import RightSidebar from "./components/RightSidebar"
-
-import { useState } from "react"
-
 import Dashboard from "./components/Dashboard"
+import Chat from "./components/Chat"
+
+
 
 
 function App() {
@@ -66,7 +70,20 @@ function App() {
 
   const people = {
     cartel: [
-      {name: 'Mike Byers', photoURl: '', unreadMessages: 2},
+      { name: 'Mike Byers',
+        photoURl: '', 
+        unreadMessages: 2, 
+        messages: [
+          {
+            recieved: true,
+            text: "Hey! Listen up. We got MJ and Amp in stock, send me a message to order from me."
+          },
+          {
+            recieved: false,
+            text: "Comign right up."
+          }
+        ]
+      },
       {name: 'Eddie Back', photoURl: '', unreadMessages: 0},
     ],
     clients: [
@@ -74,17 +91,33 @@ function App() {
     ],
   }
 
-  
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<Home data={data} people={people}/>}> 
+      <Route index element={<Dashboard {...data}/>}/>
+      <Route path="/:name" element={<Chat />}/>
+    </Route>
+  ))
+
+
   return (
+      <RouterProvider router={router}/>
+  )
+}
+
+function Home({data, people}){
+  return(
     <main>
       <LeftSidebar 
         {...data}
         chats={people}
       />
-      <Dashboard  {...data}/>
+      <Outlet />
       <RightSidebar />
     </main>
   )
 }
 
 export default App
+
+
