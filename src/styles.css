@@ -139,6 +139,7 @@ main {
     min-height: 50px;
     margin-top: 12px;
     border-radius: 8px;
+    padding: 10px 15px;
 }
 
 .rep-drugs{
@@ -251,12 +252,12 @@ main {
 .chat-container{
     display: flex;
     flex-direction: column;
+
 }
 
 .message{
     max-width: 70%;
     margin-bottom: 12px;
-    margin-top: 5px;
     padding: 12px;
     border-radius: 8px;
 }
@@ -306,3 +307,25 @@ a{
     align-items: center;
 }
 
+.inventory-item{
+  display: flex;
+  background: rgba(0, 0, 0, 0.63);
+  border-radius: 6px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.inventory-item > img{
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.inventory-item--info{
+    font-size: 14px;
+}
+
+
+.inventory-item--info > p{
+    color: #a7a7a7;
+    margin-top: 5px;
+}

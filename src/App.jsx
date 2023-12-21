@@ -18,7 +18,7 @@ function App() {
       cash: 1810.05
     },
     xp: {
-      level: 1,
+      level: 2,
       points: 90,
       nextLevelPoints: 100
     },
@@ -63,7 +63,19 @@ function App() {
         disabled: false,
         unlockLevel: 10,
       },
+    ],
+    inventory: [
+      {
+        name: "Marihuana",
+        quantity: 100
+      },
+      {
+        name: "Amphetamine",
+        quantity: 35
+      }
+
     ]
+
 
   })
 
@@ -113,7 +125,7 @@ function Home({data, people}){
         chats={people}
       />
       <Outlet />
-      <RightSidebar />
+      <RightSidebar inventory={data.inventory}/>
     </main>
   )
 }
