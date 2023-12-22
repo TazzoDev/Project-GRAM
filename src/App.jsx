@@ -27,6 +27,10 @@ function App() {
       reputation: 20,
       prices: 13
     },
+    cartel:{
+      owedCash: 0,
+      buyLimit: 1000,
+    },
     drugs: [
       {
         name: 'Marihuana',
@@ -124,7 +128,7 @@ function Home({data, people}){
         {...data}
         chats={people}
       />
-      <Outlet />
+      <Outlet context={data}/>
       <RightSidebar inventory={data.inventory}/>
     </main>
   )

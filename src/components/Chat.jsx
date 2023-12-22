@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom"
-import { useState } from "react"
+import { Link, useLocation, useOutletContext } from "react-router-dom"
+import { useContext, useState } from "react"
 
 import Message from "./Message"
 import ArrowLeft from "../assets/icons/ArrowLeft"
@@ -8,7 +8,7 @@ import Buy from "./Buy"
 
 export default function Chat(){
 
-    const [interactionShown, setInteractionShown] = useState(true)
+    const [interactionShown, setInteractionShown] = useState(false)
 
     const {state} = useLocation()
 

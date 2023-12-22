@@ -1,6 +1,5 @@
 export default function RightSidebar({inventory}){
 
-    console.log(inventory)
 
     const inventoryElements = inventory.map((item, index) => 
         <div className="inventory-item" key={index}>
