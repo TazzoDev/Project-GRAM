@@ -93,7 +93,7 @@ function App() {
           {
             recieved: false,
             text: "Comign right up. AAAAAAA"
-          }
+          },
         ]
       },
       {name: 'Eddie Back', photoURl: '', unreadMessages: 0},
