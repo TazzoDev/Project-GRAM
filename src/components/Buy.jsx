@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useOutletContext } from "react-router-dom"
 
-export default function Buy(){
+export default function Buy({subtractCash, addItem}){
 
     const [order, setOrder] = useState([])
     const [total, setTotal] = useState(0)
@@ -20,14 +20,22 @@ export default function Buy(){
         <div className="drug-card" key={index}>
             <img src={`src/assets/images/drugs/${item.name}.png`} />
             <p>{item.name}</p>
-            <p>{item.quantity}g</p>
+            <p><input className="quantity-input" type="number" name={item.name} onChange={(e) => handleQuantityChange(index, e.target.value)} value={item.quantity}/>g</p>
         </div>
     )
+
+    function handleQuantityChange(index, quantity){
+        const newOrder = [...order]
+
+        newOrder[index].quantity = quantity
+
+        setOrder(newOrder)
+    }
 
     function handleDrugElementClick(drug){
         setOrder(oldOrder => ([
             ...oldOrder,
-            {...drug, quantity: 5}
+            {...drug, quantity: 1}
         ]))
     }
 
@@ -40,7 +48,10 @@ export default function Buy(){
     },[order])
 
 
-    console.log(order)
+    function handlePlaceOrder(){
+        subtractCash(total)
+        order.forEach(item => addItem(item))
+    }
 
     return(
         <div className="buy">
@@ -56,7 +67,7 @@ export default function Buy(){
                     <div className="buy--drug-order--summary">
                         <p>Purchase Limit: ${data.cartel.buyLimit}</p>
                         <p>Total: ${total}</p>
-                        <button>Place order</button>
+                        <button onClick={handlePlaceOrder}>Place order</button>
                     </div>
                 </section>
             </div>

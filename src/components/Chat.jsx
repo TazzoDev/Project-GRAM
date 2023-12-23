@@ -6,7 +6,7 @@ import ArrowLeft from "../assets/icons/ArrowLeft"
 import SendIcon from "../assets/icons/SendIcon"
 import Buy from "./Buy"
 
-export default function Chat(){
+export default function Chat({subtractCash, addItem}){
 
     const [interactionShown, setInteractionShown] = useState(false)
 
@@ -40,7 +40,7 @@ export default function Chat(){
                     <SendIcon color="white" />
                 </div>
             </div>
-            {interactionShown && <InteractionTab close={closeInteraction} children={<Buy />}/>}
+            {interactionShown && <InteractionTab close={closeInteraction} children={<Buy subtractCash={subtractCash} addItem={addItem}/>}/>}
         </div>
     )
 }

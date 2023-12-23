@@ -99,6 +99,8 @@ main {
     align-items: center;
     justify-content: space-between;
     margin-top: 8px;
+    padding: 10px 8px;
+    border-radius: 8px;
 }
 
 .contact-info{
@@ -428,4 +430,9 @@ a{
 .buy--order--cart{
     overflow-y: scroll;
     height: 85%;
+}
+
+.quantity-input{
+    width: 50px;
+    margin-right: 8px;
 }

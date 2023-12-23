@@ -79,9 +79,27 @@ function App() {
       }
 
     ]
-
-
   })
+
+  function subtractCash(amount) {
+    setData(oldData => ({
+      ...oldData,
+      money: {
+        ...oldData.money,
+        cash: oldData.money.cash - amount
+      }
+    }))
+  };
+
+  function addItemToInventory(item){
+    setData(oldData => ({
+      ...oldData,
+      inventory: [
+        ...oldData.inventory,
+        {...item}
+      ]
+    }))
+  }
 
 
   const people = {
@@ -111,7 +129,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Home data={data} people={people}/>}> 
       <Route index element={<Dashboard {...data}/>}/>
-      <Route path="/:name" element={<Chat />}/>
+      <Route path="/:name" element={<Chat subtractCash={subtractCash} addItem={addItemToInventory}/>}/>
     </Route>
   ))
 

@@ -1,9 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Contact(data){
     return(
-        <Link to={data.name} state={data}>
-            <div className="contact">
+        <NavLink 
+            to={data.name} 
+            state={data}
+            style={({isActive}) => {
+                return {
+                    background: isActive ? '#088C6F3D' : 'transparent'
+                }
+            }}
+            className='contact'
+        >
                 <div className="contact-info">
                     <img src={data.photoURL ? data.photoURL : 'https://placehold.co/50'} />
                     <div className="name-area">
@@ -18,7 +26,7 @@ export default function Contact(data){
                         <b>{data.unreadMessages}</b>
                     </div>
                 }
-            </div>
-        </Link>
+            
+        </NavLink>
     )
 }
