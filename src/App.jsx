@@ -92,13 +92,24 @@ function App() {
   };
 
   function addItemToInventory(item){
-    setData(oldData => ({
-      ...oldData,
-      inventory: [
-        ...oldData.inventory,
-        {...item}
-      ]
-    }))
+
+    const existingItem = data.inventory.findIndex(drug => item.name === drug.name)
+
+
+    if(existingItem === -1){
+      setData(oldData => ({
+        ...oldData,
+        inventory: [
+          ...oldData.inventory,
+          {...item}
+        ]
+      }))
+    } else {
+      const newInventoryData = data.inventory
+      newInventoryData[existingItem].quantity += parseInt(item.quantity)
+      setData(oldData => ({...oldData, inventory: newInventoryData}))
+    }
+    
   }
 
 
@@ -125,6 +136,7 @@ function App() {
     ],
   }
 
+  console.log(data.inventory)
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Home data={data} people={people}/>}> 
