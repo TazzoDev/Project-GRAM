@@ -355,13 +355,15 @@ a{
     z-index: 1; /* Asegura que el modal esté delante del contenido */
 }
 
+
+
 .close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0px;
+    right: 5px;
     cursor: pointer;
-    font-size: 20px;
-    color: #333;
+    font-size: 25px;
+    color: #FF4C4C;
 }
 
 .buy{
@@ -416,6 +418,11 @@ a{
     align-items: center;
     padding: 12px 0;
   
+}
+
+.buy--drug-order--summary  span {
+    color: #FF4C4C;
+    font-weight: bold;
 }
 
 .buy--drug-order--summary > button {

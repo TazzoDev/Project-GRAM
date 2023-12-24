@@ -6,6 +6,8 @@ export default function Buy({subtractCash, addItem}){
     const [order, setOrder] = useState([])
     const [total, setTotal] = useState(0)
 
+    const [showInsufficientCash, setShowInsufficientCash] = useState(false)
+
     const data = useOutletContext()
 
     const drugElements = data.drugs.map((drug, index) => 
@@ -20,7 +22,18 @@ export default function Buy({subtractCash, addItem}){
         <div className="drug-card" key={index}>
             <img src={`src/assets/images/drugs/${item.name}.png`} />
             <p>{item.name}</p>
-            <p><input className="quantity-input" type="number" name={item.name} onChange={(e) => handleQuantityChange(index, e.target.value)} value={item.quantity}/>g</p>
+            <p>
+                <input 
+                    className="quantity-input" 
+                    type="number" 
+                    name={item.name} 
+                    onChange={(e) => handleQuantityChange(index, e.target.value)} 
+                    value={item.quantity} 
+                    min='1' 
+                    onInput={(e) => e.target.value = Math.abs(e.target.value)}
+                />
+                g
+            </p>
         </div>
     )
 
@@ -47,10 +60,18 @@ export default function Buy({subtractCash, addItem}){
         })
     },[order])
 
+    useEffect(() => {
+        if(data.money.cash < total) setShowInsufficientCash(true)
+        else setShowInsufficientCash(false)
+    },[total])
 
     function handlePlaceOrder(){
-        subtractCash(total)
-        order.forEach(item => addItem(item))
+        if(data.money.cash >= total){
+            subtractCash(total)
+            order.forEach(item => {
+                if(item.quantity > 0) addItem(item)
+            })
+        } 
     }
 
     return(
@@ -66,7 +87,7 @@ export default function Buy({subtractCash, addItem}){
                     <hr />
                     <div className="buy--drug-order--summary">
                         <p>Purchase Limit: ${data.cartel.buyLimit}</p>
-                        <p>Total: ${total}</p>
+                        <p>Total: ${total} <br /> {showInsufficientCash && <span>Not enough cash!</span>}</p>
                         <button onClick={handlePlaceOrder}>Place order</button>
                     </div>
                 </section>
