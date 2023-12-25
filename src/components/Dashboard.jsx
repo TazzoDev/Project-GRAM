@@ -1,3 +1,4 @@
+import Map from "./Map";
 import ReputationBar from "./ReputationBar";
 
 export default function Dashboard({rep, drugs, xp}){
@@ -16,9 +17,7 @@ export default function Dashboard({rep, drugs, xp}){
                     {drugElements}
                 </section>
             </div>
-            <div className="map">
-                <img src="src/assets/map.svg"/>
-            </div>
+            <Map />
         </section>
     )
 }

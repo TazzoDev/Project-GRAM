@@ -10,11 +10,17 @@ export default function Buy({subtractCash, addItem}){
 
     const data = useOutletContext()
 
+   
+
     const drugElements = data.drugs.map((drug, index) => 
-        <div className="drug-card" key={index} onClick={() => handleDrugElementClick(drug)}>
-            <img src={`src/assets/images/drugs/${drug.name}.png`} />
-            <p>{drug.name}</p>
-        </div>
+        {
+            if((data.xp.level >= drug.unlockLevel) && (!drug.disabled)){ 
+                return <div className="drug-card" key={index} onClick={() => handleDrugElementClick(drug)}>
+                    <img src={`src/assets/images/drugs/${drug.name}.png`} />
+                    <p>{drug.name}</p>
+                </div>
+            }
+        }
     )
 
 
