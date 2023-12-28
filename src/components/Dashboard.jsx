@@ -6,7 +6,7 @@ export default function Dashboard({rep, drugs, xp}){
     const drugElements = drugs.map((drug, index) => <DrugTab {...drug} {...xp} key={index} />)
 
     return(
-        <section>
+        <section className="dashboard">
             <div className="rep-drugs">
                 <section className="reputation">
                     <h1>REPUTATION</h1>

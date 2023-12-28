@@ -446,11 +446,20 @@ a{
 }
 
 .map{
-    height: 330px;
-    width: 100%;
+    height: 510px;
+    width: 660px;
     background: gray;
+    
+
 }
 
-.district{
-    background: #4B89B8;
+.sector > path, .sector > rect {
+    fill: gray;
+    transition: fill 0.3s ease;
 }
+
+.sector:hover > path, .sector:hover > rect {
+    fill: #088C6F;
+}
+
+

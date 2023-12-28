@@ -22,8 +22,8 @@ export default function LeftSidebar({money, xp, chats}){
                     <h2>Boss</h2>
                 </div>
                 <div className="money-stats">
-                    <p>Bank: <b>${formatNumber(money.bank)}</b></p>
-                    <p>Cash: <b>${formatNumber(money.cash)}</b></p>
+                    <p>Bank 💳 : <b>${formatNumber(money.bank)}</b></p>
+                    <p>Cash 💵 : <b>${formatNumber(money.cash)}</b></p>
                 </div>
                 <br />
                 <div className="level-stats">
